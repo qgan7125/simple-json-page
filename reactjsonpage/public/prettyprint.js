@@ -180,7 +180,7 @@ var prettyPrint = (function(){
 		},
 		
 		shorten: function(str) {
-			var max = 40;
+			var max = str.length;
 			str = str.replace(/^\s\s*|\s\s*$|\n/g,'');
 			return str.length > max ? (str.substring(0, max-1) + '...') : str;
 		},
@@ -682,7 +682,7 @@ var prettyPrint = (function(){
 		expanded: true,
 		
 		forceObject: false,
-		maxDepth: 5,
+		maxDepth: 10,
 		maxArray: -1,  // default is unlimited
 		styles: {
 			array: {
@@ -741,8 +741,8 @@ var prettyPrint = (function(){
 					width: '100%'
 				},
 				td: {
-					padding: '5px',
-					fontSize: '12px',
+					padding: '3px',
+					fontSize: '15px',
 					backgroundColor: '#FFF',
 					color: '#222',
 					border: '1px solid #000',
@@ -755,8 +755,8 @@ var prettyPrint = (function(){
 						- Be aware that "inheritable" properties (e.g. fontWeight) WILL BE INHERITED */
 				},
 				th: {
-					padding: '5px',
-					fontSize: '12px',
+					padding: '3px',
+					fontSize: '15px',
 					backgroundColor: '#222',
 					color: '#EEE',
 					textAlign: 'left',
