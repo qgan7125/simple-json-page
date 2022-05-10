@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Example URL
+```
+http://localhost:3000/#/IGSN:ODP02DGLR
+```
+
 ## Setup
 Run the following command before any `npm` command
 `npm install`
