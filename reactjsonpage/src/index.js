@@ -6,17 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import {
   HashRouter,
   Routes,
-  Route,
+  Route
 } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HashRouter>
-      <Routes>
-          <Route path="/" element={<App />}>
-              <Route path='/:id' element={<App />}/>
-          </Route>
-      </Routes>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route path='/:id' element={<App />} />
+      </Route>
+    </Routes>
   </HashRouter>
 );
 

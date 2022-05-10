@@ -2,6 +2,7 @@ import './App.css';
 import _solr_base from './config';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { JsonToTable } from 'react-json-to-table';
 
 
 function App() {
@@ -24,7 +25,13 @@ function App() {
         headers: headers
       })
         .then(res => res.json())
-        .then(data => setData(data))
+        .then(data => {
+          setData(data)
+          const script = document.createElement('script');
+          script.type = "application/ld+json";
+          script.text = JSON.stringify(data, null, 4);
+          document.head.appendChild(script);
+        })
     } catch (err) {
       console.log("Error: ", err);
       setData("Wrong Identifier!");
@@ -33,11 +40,13 @@ function App() {
 
   useEffect(() => {
     fetchJSON()
-  })
+  }, []);
+
 
   return (
-    <textarea value={JSON.stringify(jsonData, null, 4)}></textarea>
-    // <Treebeard data={{name:"root", toggled:true, jsonData}} />
+    <>
+      <JsonToTable json={jsonData} />
+    </>
   )
 
 }
