@@ -26,18 +26,26 @@ function App() {
             }
             if (!nested) {
               trees.push(
-                <TreeView nodeLabel={key}>{value.join(",")}</TreeView>
+                <TreeView nodeLabel={key} defaultCollapsed={false}>
+                  {value}
+                </TreeView>
               );
             } else {
               //object array
               for (var i = 0; i < value.length; i++) {
                 trees.push(
-                  <TreeView nodeLabel={key + i}>{scanJSON(value[i])}</TreeView>
+                  <TreeView nodeLabel={key + i} defaultCollapsed={false}>
+                    {scanJSON(value[i])}
+                  </TreeView>
                 );
               }
             }
           } else {
-            trees.push(<TreeView nodeLabel={key}>{scanJSON(value)}</TreeView>);
+            trees.push(
+              <TreeView nodeLabel={key} defaultCollapsed={false}>
+                {scanJSON(value)}
+              </TreeView>
+            );
           }
         } else {
           trees.push(
@@ -65,17 +73,21 @@ function App() {
         headers: headers,
       })
         .then((res) => res.json())
-        .then((data) => setData(data));
+        .then((data) => {
+          setData(data);
+          setTrees(scanJSON(data))});
+        
     } catch (err) {
       console.log("Error: ", err);
       setData("Wrong Identifier!");
     }
+    
   }
 
-  useEffect(() => {
-    fetchJSON();
-    setTrees(scanJSON(jsonData));
-  }, []);
+  useEffect(async() => {
+   fetchJSON();
+   
+  },[]);
 
   return (
     <div>
