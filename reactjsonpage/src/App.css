@@ -47,3 +47,25 @@ textarea{
   outline: none;
   padding: 10px;
 }
+
+
+.tree-view_children {
+  margin-left: 16px;
+}
+.tree-view_arrow {
+  cursor: pointer;
+  margin-right: 6px;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tree-view_arrow:after {
+  content: '▾';
+}
+
+.tree-view_arrow-empty {
+  color: yellow;
+}
