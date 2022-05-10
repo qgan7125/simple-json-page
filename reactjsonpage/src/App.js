@@ -3,6 +3,7 @@ import _solr_base from './config';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 function App() {
   const { id } = useParams();
 
@@ -15,7 +16,7 @@ function App() {
     }
 
     const headers = { "Accept": "application/json" };
-    const url = _solr_base + encodeURIComponent(id);
+    const url = _solr_base + encodeURIComponent(id) + `?format=full`;
 
     try {
       await fetch(url, {
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <textarea value={JSON.stringify(jsonData, null, 4)}></textarea>
+    // <Treebeard data={{name:"root", toggled:true, jsonData}} />
   )
 
 }
