@@ -2,62 +2,16 @@ import "./App.css";
 import _solr_base from "./config";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TreeView from "react-treeview";
+import CreateJSONTree from "./CreateJSONTree";
+import { JSONToHTMLTable } from "@kevincobain2000/json-to-html-table";
+import sampleData from "./records/IGSN-ODP02DGLR.json";
+
 function App() {
   const { id } = useParams();
 
   const [jsonData, setData] = useState();
-  const [trees, setTrees] = useState([]);
 
-  function scanJSON(json) {
-    const trees = [];
-    for (var key in json) {
-      let value = json[key];
-      if (value != null) {
-        if (typeof value === "object") {
-          if (Array.isArray(value)) {
-            //array as value
-            let nested = false;
-            for (var i = 0; i < value.length; i++) {
-              if (typeof value[i] === "object") {
-                nested = true; //object array
-                break;
-              }
-            }
-            if (!nested) {
-              trees.push(
-                <TreeView nodeLabel={key} defaultCollapsed={false}>
-                  {value}
-                </TreeView>
-              );
-            } else {
-              //object array
-              for (var i = 0; i < value.length; i++) {
-                trees.push(
-                  <TreeView nodeLabel={key + i} defaultCollapsed={false}>
-                    {scanJSON(value[i])}
-                  </TreeView>
-                );
-              }
-            }
-          } else {
-            trees.push(
-              <TreeView nodeLabel={key} defaultCollapsed={false}>
-                {scanJSON(value)}
-              </TreeView>
-            );
-          }
-        } else {
-          trees.push(
-            <TreeView nodeLabel={key} defaultCollapsed={false}>
-              {value}
-            </TreeView>
-          );
-        }
-      }
-    }
-    return trees;
-  }
+
   async function fetchJSON(method = "GET") {
     if (!id) {
       setData("Please enter the identifier!");
@@ -75,7 +29,7 @@ function App() {
         .then((res) => res.json())
         .then((data) => {
           setData(data);
-          setTrees(scanJSON(data))});
+        });
         
     } catch (err) {
       console.log("Error: ", err);
@@ -86,13 +40,14 @@ function App() {
 
   useEffect(async() => {
    fetchJSON();
-   
+
   },[]);
 
   return (
     <div>
       {/* <textarea value={JSON.stringify(jsonData, null, 4)}></textarea> */}
-      {trees}
+      {/* {CreateJSONTree(sampleData)} */}
+      <JSONToHTMLTable data={sampleData} tableClassName="table table-condensed table-sm" />
     </div>
   );
 }
