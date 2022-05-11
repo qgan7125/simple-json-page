@@ -1,7 +1,8 @@
-import './App.css';
+import './css/App.css';
 import _solr_base from './config';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import TableView from './js/tableView';
 
 function App() {
   // Get the current URL parameter
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <>
+      <TableView data={jsonData}/>
       <textarea style={{width: "100%", height: "100vh"}} value={JSON.stringify(jsonData, null, 4)} readOnly></textarea>
     </>
   )
