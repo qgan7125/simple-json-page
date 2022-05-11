@@ -16,59 +16,87 @@ function SimpleTable (props) {
     for (var key in json) {
       if (key === "resolved_content") {
         let value = json[key];
-        if ("description" in value) {
-          if ("log" in value["description"]) {
-            //combine the logging data
-            let combined = [];
-            for (let time of value["description"]["log"]) {
-              let { type: type, timestamp: ts } = time;
-              combined.push(type + ": " + ts);
-            }
-            value["description"]["log"] = combined; //update to flattened version
-          }
-          if ("contributors" in value["description"]) {
-            let combined = [];
-            for (let person of value["description"]["contributors"]) {
-              let {
-                "@type": type,
-                roleName: roleName,
-                contributor: contribObj,
-              } = person;
-              let names = [];
-              for (let contribPerson of contribObj) {
-                if ("name" in contribPerson) {
-                  names.push(contribPerson["name"]);
+        if ("registrant"  in value){
+            if ("identifiers" in value["registrant"] ) {
+                //combine object to single value (concatenation)
+                let concatenated="";
+                for (let identifier in value["registrant"]["identifiers"]) {
+                    let identifier_value =value["registrant"]["identifiers"][identifier];
+                    concatenated += identifier_value +" ("+identifier+") , ";
                 }
-              }
-              if (names.length === 0) {
-                combined.push(roleName + ": " + "N/A");
-              } else {
-                combined.push(roleName + ": " + names.join(","));
-              }
+                console.log(concatenated);
+                value["registrant"]["identifiers"] = concatenated.slice(0, -2);
             }
-            value["description"]["contributors"] = combined;
-          }
-          if (
-            "geoLocation" in value["description"] &&
-            "geo" in value["description"]["geoLocation"]
-          ) {
-            let combined = [];
-            for (let location of value["description"]["geoLocation"]["geo"]) {
-              let { latitude: latitude, longitude: longitude } = location;
-              combined.push("(" + latitude + "," + longitude + ")");
-            }
-            value["description"]["geoLocation"]["geo"] = combined;
-          }
+           
         }
-      }
+        
+        if ("description" in value) {
+            if ("log" in value["description"]) {
+                //combine the logging data
+                let combined = [];
+                for (let time of value["description"]["log"]) {
+                let { type: type, timestamp: ts } = time;
+                combined.push(type + ": " + ts);
+                }
+                value["description"]["log"] = combined; //update to flattened version
+            }
+            if ("contributors" in value["description"]) {
+                let combined = [];
+                for (let person of value["description"]["contributors"]) {
+                let {
+                    "@type": type,
+                    roleName: roleName,
+                    contributor: contribObj,
+                } = person;
+                let names = [];
+                for (let contribPerson of contribObj) {
+                    if ("name" in contribPerson) {
+                    names.push(contribPerson["name"]);
+                    }
+                }
+                if (names.length === 0) {
+                    combined.push(roleName + ": " + "N/A");
+                } else {
+                    combined.push(roleName + ": " + names.join(","));
+                }
+                }
+                value["description"]["contributors"] = combined;
+            }
+            if (
+                "geoLocation" in value["description"] &&
+                "geo" in value["description"]["geoLocation"]
+            ) {
+                let combined = [];
+                for (let location of value["description"]["geoLocation"]["geo"]) {
+                let { latitude: latitude, longitude: longitude } = location;
+                combined.push("(" + latitude + "," + longitude + ")");
+                }
+                value["description"]["geoLocation"]["geo"] = combined;
+            }
+            
+        
+            if ("publisher" in value["description"] ) {
+                    //combine object to single value (concatenation)
+                    let concatenated="";
+                    for (let publisher_key in value["description"]["publisher"]) {
+                        if (!publisher_key.toString().startsWith("@") ){
+                            let publisher_value = value["description"]["publisher"][publisher_key];
+                            if(!(typeof publisher_value === "object")) {concatenated += publisher_value +" ("+publisher_key+") , ";}
+                        }
+                    }
+                    value["description"]["publisher"] = concatenated.slice(0,-2);
+            }
+        }
+     }
     }
   };
 
   const tableRows = [];
+  const excludeKeys = ["item_type", "resolved_url","tresolved","resolved_media_type","tcreated","resolved_status","resolved_elapsed","h3"];
   const scanJSON = (json, lastKey) => {
     for (var key in json) {
       let value = json[key];
-      if (value != null && !key.toString().startsWith("@")) {
+      if (value != null && !key.toString().startsWith("@")&& !excludeKeys.includes(key)) {
         if (typeof value === "object") {
           if (Array.isArray(value)) {
             //array as value
@@ -134,7 +162,7 @@ function SimpleTable (props) {
   return (
     <div>
       <Container>
-        <Card style={{ width: "60rem" }}>
+        <Card style={{ width: "80rem" }}>
           <Card.Header>Description</Card.Header>
           <table className="table table-striped table-hover">
             <thead>
