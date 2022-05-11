@@ -1,6 +1,6 @@
 import './App.css';
 import _solr_base from './config';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 function App() {
