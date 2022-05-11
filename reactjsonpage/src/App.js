@@ -2,10 +2,9 @@ import "./App.css";
 import _solr_base from "./config";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import CreateJSONTree from "./CreateJSONTree";
-import { JSONToHTMLTable } from "@kevincobain2000/json-to-html-table";
+import JSONTree from "./component/JSONTree";
 import sampleData from "./records/IGSN-ODP02DGLR.json";
-
+import SimpleTable from "./component/SimpleTable";
 function App() {
   const { id } = useParams();
 
@@ -39,15 +38,16 @@ function App() {
   }
 
   useEffect(async() => {
-   fetchJSON();
+    //fetchJSON();
 
   },[]);
 
   return (
     <div>
       {/* <textarea value={JSON.stringify(jsonData, null, 4)}></textarea> */}
-      {/* {CreateJSONTree(sampleData)} */}
-      <JSONToHTMLTable data={sampleData} tableClassName="table table-condensed table-sm" />
+      {/* {JSONTree(sampleData)} */}
+      
+      <SimpleTable data={sampleData}></SimpleTable>
     </div>
   );
 }

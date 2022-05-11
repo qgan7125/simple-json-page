@@ -1,0 +1,121 @@
+{
+    "identifiers": [
+        "IGSN:NHB0031EE"
+    ],
+    "resolved_content": {
+        "@id": "https://data.geosamples.org/sample/igsn/NHB0031EE",
+        "igsn": "NHB0031EE",
+        "@context": "https://raw.githubusercontent.com/IGSN/igsn-json/master/schema.igsn.org/json/registration/v0.1/context.jsonld",
+        "registrant": {
+            "name": "IEDA",
+            "identifiers": {
+                "id": "https://www.geosamples.org",
+                "kind": "uri"
+            }
+        },
+        "description": {
+            "log": [
+                {
+                    "type": "registered",
+                    "timestamp": "2015-05-29 02:46:33"
+                },
+                {
+                    "type": "published",
+                    "timestamp": "2015-05-29 02:46:33"
+                },
+                {
+                    "type": "lastUpdated",
+                    "timestamp": "2019-05-10 01:18:23"
+                }
+            ],
+            "material": "Strengite>Mineral",
+            "publisher": {
+                "@id": "https://www.geosamples.org",
+                "url": "https://www.geosamples.org",
+                "name": "EarthChem",
+                "@type": "Organization",
+                "contactPoint": {
+                    "url": "https://www.geosamples.org/contact/",
+                    "name": "Information Desk",
+                    "@type": "ContactPoint",
+                    "email": "info@geosamples.org",
+                    "contactType": "Customer Service"
+                }
+            },
+            "igsnPrefix": "NHB",
+            "sampleName": "NMNH M15129-00 (MIN)",
+            "sampleType": "Individual Sample",
+            "contributors": [
+                {
+                    "@type": "Role",
+                    "roleName": "Sample Owner",
+                    "contributor": [
+                        {
+                            "name": "Adam Mansur",
+                            "@type": "Person",
+                            "givenName": "Adam",
+                            "familyName": "Mansur"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Role",
+                    "roleName": "Sample Registrant",
+                    "contributor": [
+                        {
+                            "name": "Adam Mansur",
+                            "@type": "Person",
+                            "givenName": "Adam",
+                            "familyName": "Mansur"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Role",
+                    "roleName": "Sample Archive Contact",
+                    "contributor": [
+                        {
+                            "@type": "Person"
+                        }
+                    ]
+                }
+            ],
+            "supplementMetadata": {
+                "country": "Chile",
+                "document": [],
+                "province": "Coquimbo",
+                "sampleId": 3863139,
+                "childIGSN": [],
+                "fieldName": "Strengite with dufrenite",
+                "otherName": [],
+                "currentArchive": "National Mineral Collection, Smithsonian Institution",
+                "publicationUrl": [
+                    {
+                        "url": "http://grscicoll.org/cool/ipjg-ikz6",
+                        "urlType": "regular URL",
+                        "description": "Department of Mineral Sciences (Global Registry of Scientific Collections)"
+                    },
+                    {
+                        "url": "http://n2t.net/ark:/65665/366fb793b-d926-4813-ada7-2ac6c4371ec8",
+                        "urlType": "regular URL",
+                        "description": "Smithsonian collections record for NMNH M15129-00 (MIN)"
+                    }
+                ],
+                "externalSampleId": "NMNH M15129-00 (MIN)",
+                "currentArchiveContact": "pohwatp@si.edu"
+            }
+        }
+    },
+    "tstamp": "2022-04-15T20:50:46.077834",
+    "item_type": "Individual Sample",
+    "resolved_url": "https://api.geosamples.org/v1/sample/igsn-ev-json-ld/igsn/NHB0031EE",
+    "tresolved": "2021-05-13T01:00:50.154275",
+    "resolved_media_type": "application/ld+json",
+    "primary_key": 4379442,
+    "id": "IGSN:NHB0031EE",
+    "tcreated": "2019-05-10T00:00:00",
+    "authority_id": "SESAR",
+    "resolved_status": 200,
+    "resolve_elapsed": 0.288773,
+    "h3": null
+}

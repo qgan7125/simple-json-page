@@ -1,15 +1,15 @@
 import React, { useEffect,useState } from 'react';
 import TreeView from "react-treeview";
-import sampleData from "./records/IGSN-ODP02DGLR.json";
+import sampleData from "../records/IGSN-ODP02DGLR.json";
 
-function CreateJSONTree (props) {
+function JSONTree (props) {
     const [trees,setTrees] = useState([]);
-    const [data,setData] = useState();
+    const [data,setData] = useState({});
 
     useEffect(()=>{
         console.log(props);
-        setData(props.data);
-        setTrees(scanJSON(sampleData))
+        setData(props);
+        setTrees(scanJSON(data));
     },[])
     
     const scanJSON = (json)=>{
@@ -71,4 +71,4 @@ function CreateJSONTree (props) {
     );
 }
 
-export default CreateJSONTree;
+export default JSONTree;

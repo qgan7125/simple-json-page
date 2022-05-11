@@ -1,0 +1,138 @@
+{
+    "identifiers": [
+        "IGSN:ODP02DGLR"
+    ],
+    "resolved_content": {
+        "@id": "https://data.geosamples.org/sample/igsn/ODP02DGLR",
+        "igsn": "ODP02DGLR",
+        "@context": "https://raw.githubusercontent.com/IGSN/igsn-json/master/schema.igsn.org/json/registration/v0.1/context.jsonld",
+        "registrant": {
+            "name": "IEDA",
+            "identifiers": {
+                "id": "https://www.geosamples.org",
+                "kind": "uri"
+            }
+        },
+        "description": {
+            "log": [
+                {
+                    "type": "registered",
+                    "timestamp": "2006-08-11 12:00:00"
+                },
+                {
+                    "type": "published",
+                    "timestamp": "2010-12-10 07:52:12"
+                },
+                {
+                    "type": "lastUpdated",
+                    "timestamp": "2006-08-11 12:00:00"
+                }
+            ],
+            "collector": "Curator",
+            "publisher": {
+                "@id": "https://www.geosamples.org",
+                "url": "https://www.geosamples.org",
+                "name": "EarthChem",
+                "@type": "Organization",
+                "contactPoint": {
+                    "url": "https://www.geosamples.org/contact/",
+                    "name": "Information Desk",
+                    "@type": "ContactPoint",
+                    "email": "info@geosamples.org",
+                    "contactType": "Customer Service"
+                }
+            },
+            "igsnPrefix": "ODP",
+            "sampleName": "Sample 160-966A-5H-4 (108-110 cm.)",
+            "sampleType": "Individual Sample",
+            "description": "Janus sample_id: 1098706",
+            "geoLocation": {
+                "geo": [
+                    {
+                        "@type": "GeoCoordinates",
+                        "latitude": "33.7966",
+                        "longitude": "32.7016"
+                    }
+                ],
+                "@type": "Place"
+            },
+            "contributors": [
+                {
+                    "@type": "Role",
+                    "roleName": "Sample Owner",
+                    "contributor": [
+                        {
+                            "name": "Curator Integrated Ocean Drilling Program (TAMU)",
+                            "@type": "Person",
+                            "givenName": "Curator",
+                            "familyName": "Integrated Ocean Drilling Program (TAMU)"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Role",
+                    "roleName": "Sample Registrant",
+                    "contributor": [
+                        {
+                            "name": "Curator Integrated Ocean Drilling Program (TAMU)",
+                            "@type": "Person",
+                            "givenName": "Curator",
+                            "familyName": "Integrated Ocean Drilling Program (TAMU)"
+                        }
+                    ]
+                },
+                {
+                    "@type": "Role",
+                    "roleName": "Sample Archive Contact",
+                    "contributor": [
+                        {
+                            "name": "Curator",
+                            "@type": "Person"
+                        }
+                    ]
+                }
+            ],
+            "collectorDetail": "Texas A&M University, Integrated Ocean Drilling Program, College Station, TX, 77845, USA",
+            "parentIdentifier": "ODP01GYGN",
+            "supplementMetadata": {
+                "document": [],
+                "sampleId": 2402124,
+                "childIGSN": [],
+                "elevation": -926.6,
+                "otherName": [],
+                "siblingIGSN": [
+                    "ODP02DGLK",
+                    "ODP02DGLL",
+                    "ODP01GYGO",
+                    "ODP02DGLN",
+                    "ODP01GYGP",
+                    "ODP01GYGQ",
+                    "ODP02DGLM",
+                    "ODP02DGLO",
+                    "ODP02DGLP",
+                    "ODP02DGLQ"
+                ],
+                "platformType": "Ship",
+                "elevationUnit": "meters",
+                "currentArchive": "Integrated Ocean Drilling Program (IODP)",
+                "publicationUrl": [],
+                "originalArchive": "Texas A&M University, Integrated Ocean Drilling Program, College Station, TX, 77845, USA",
+                "cruiseFieldPrgrm": "ODP Leg 160",
+                "externalSampleId": "Sample 160-966A-5H-4 (108-110 cm.)",
+                "currentArchiveContact": "Curator"
+            }
+        }
+    },
+    "tstamp": "2022-04-14T04:53:23.721707",
+    "item_type": "Individual Sample",
+    "resolved_url": "https://api.geosamples.org/v1/sample/igsn-ev-json-ld/igsn/ODP02DGLR",
+    "tresolved": "2021-08-12T16:09:32.387416",
+    "resolved_media_type": "application/ld+json",
+    "primary_key": 2128671,
+    "id": "IGSN:ODP02DGLR",
+    "tcreated": "2006-08-11T19:00:00",
+    "authority_id": "SESAR",
+    "resolved_status": 200,
+    "resolve_elapsed": 0.361236,
+    "h3": "8f3f49c28421434"
+}
