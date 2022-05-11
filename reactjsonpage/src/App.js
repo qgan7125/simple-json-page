@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 
 function App() {
   // Get the current URL parameter
-  const { id } = useParams();
-  const container = useRef();
+  const url = useParams();
+  const id = url['*'];
   const [jsonData, setData] = useState("");
 
   useEffect(() => {
@@ -33,15 +33,13 @@ function App() {
         })
           .then(res => res.json())
           .then(data => {
-            setData("");
+            setData(data);
             // add jsonld script into head
             const script = document.createElement('script');
             script.type = "application/ld+json";
             script.text = JSON.stringify(data, null, 4);
             document.head.appendChild(script);
 
-            // modify the current div element 
-            container.current.appendChild(window.prettyPrint(data))
           })
       } catch (err) {
         console.log("Error: ", err);
@@ -53,8 +51,7 @@ function App() {
 
   return (
     <>
-      {jsonData}
-      <div ref={container} />
+      <textarea style={{width: "100%", height: "100vh"}} value={JSON.stringify(jsonData, null, 4)}></textarea>
     </>
   )
 }
