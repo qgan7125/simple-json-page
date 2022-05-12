@@ -53,7 +53,6 @@ function App() {
   return (
     <>
       <TableView data={jsonData}/>
-      <textarea style={{width: "100%", height: "100vh"}} value={JSON.stringify(jsonData, null, 4)} readOnly></textarea>
     </>
   )
 }
