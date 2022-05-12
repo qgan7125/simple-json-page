@@ -92,7 +92,7 @@ function SimpleTable (props) {
   };
 
   const tableRows = [];
-  const excludeKeys = ["item_type", "resolved_url","tresolved","resolved_media_type","tcreated","resolved_status","resolved_elapsed","h3"];
+  const excludeKeys = ["item_type", "resolved_url","tresolved","resolved_media_type","tcreated","resolved_status","resolved_elapsed","tstamp","tcreated","h3"];
   const scanJSON = (json, lastKey) => {
     for (var key in json) {
       let value = json[key];
@@ -109,10 +109,11 @@ function SimpleTable (props) {
             }
             if (!nested) {
               //console.log("key "+key+ " value "+value);
-              let toPrintValue = value.join(",");
               if (value.length === 0) {
-                toPrintValue = "-";
+                continue;
               }
+              let toPrintValue = value.join(",");
+              
               tableRows.push(
                 <tr>
                   <td>{key}</td>
