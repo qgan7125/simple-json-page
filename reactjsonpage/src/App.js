@@ -3,6 +3,14 @@ import _solr_base from './config';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import TableView from './js/tableView';
+import Map from './js/leafFletMap';
+import {
+  Container,
+  Row,
+  Col,
+  Stack,
+  Card
+} from 'react-bootstrap';
 
 function App() {
   // Get the current URL parameter
@@ -36,11 +44,16 @@ function App() {
           .then(data => {
             setData(data);
             // add jsonld script into head
-            const script = document.createElement('script');
-            script.type = "application/ld+json";
-            script.text = JSON.stringify(data, null, 4);
-            document.head.appendChild(script);
-
+            // modify the current script element rather than add new script
+            let script = document.querySelector('script[type="application/ld+json"]');
+            if (!script) {
+              script = document.createElement('script');
+              script.type = "application/ld+json";
+              script.text = JSON.stringify(data, null, 4);
+              document.head.appendChild(script);
+            }else{
+              script.text = JSON.stringify(data, null, 4);
+            }
           })
       } catch (err) {
         console.log("Error: ", err);
@@ -52,7 +65,27 @@ function App() {
 
   return (
     <>
-      <TableView data={jsonData}/>
+      <Container fluid>
+        <Row>
+          <Col >
+            <TableView data={jsonData} />
+          </Col>
+          <Col xs={4}>
+            <Stack gap={3}>
+              <div>
+                <Card style={{ width: "100%" }}>
+                  <Card.Header>Citation</Card.Header>
+                  test
+                </Card>
+              </div>
+              <div>
+                Map Data
+                <Map data={jsonData}/>
+              </div>
+            </Stack>
+          </Col>
+        </Row>
+      </Container>
     </>
   )
 }

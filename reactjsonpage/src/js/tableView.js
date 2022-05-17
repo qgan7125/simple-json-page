@@ -1,5 +1,8 @@
 import HtmlJsonTable from "react-json-to-html-table"
 import "../css/table.css";
+import {
+    Card
+} from 'react-bootstrap';
 const fields = ["id", "authority_id", "primary_key", "item_type", "resolved_content"];
 
 function TableView(props) {
@@ -54,7 +57,7 @@ function TableView(props) {
      * @returns 
      */
     function wellFormatKey(key) {
-        const newKey = key.replace('resolved_content', "").replace('description', "").replace('supplementMetadata', "").replace(" ", "");
+        const newKey = key.replace('resolved_content', "").replace(" ", "");
         return newKey.split(' ').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ');
     }
 
@@ -67,9 +70,12 @@ function TableView(props) {
     }
 
     return (
-        <div style={{width: "800px"}}>
-            <HtmlJsonTable data={updateKeyDict} className=" table-sm table-striped table-bordered table-responsive table-hover " />
-        </div>
+        <Card >
+            <Card.Header><b>Description</b></Card.Header>
+            <div style={{ minWidth: "800px", padding: "10px" }}>
+                <HtmlJsonTable data={updateKeyDict} className="table table-sm table-striped table-responsive table-hover " />
+            </div>
+        </Card>
     )
 }
 
