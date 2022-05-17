@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
+
 function SimpleTable (props) {
   const [rows, setRows] = useState([]);
   const [data, setData] = useState(props.data);
+  const [location, setLocation] = useState([]);
 
   useEffect(() => {
+        console.log(data);
         preprocessJSON(data);
         setRows(scanJSON(data, null));
   }, []);
@@ -24,7 +26,7 @@ function SimpleTable (props) {
                     let identifier_value =value["registrant"]["identifiers"][identifier];
                     concatenated += identifier_value +" ("+identifier+") , ";
                 }
-                console.log(concatenated);
+               
                 value["registrant"]["identifiers"] = concatenated.slice(0, -2);
             }
            
@@ -68,8 +70,9 @@ function SimpleTable (props) {
             ) {
                 let combined = [];
                 for (let location of value["description"]["geoLocation"]["geo"]) {
-                let { latitude: latitude, longitude: longitude } = location;
-                combined.push("(" + latitude + "," + longitude + ")");
+                  let { latitude: latitude, longitude: longitude } = location;
+                  combined.push("(" + latitude + "," + longitude + ")");
+                  props.setLocation([latitude,longitude]);
                 }
                 value["description"]["geoLocation"]["geo"] = combined;
             }
@@ -162,10 +165,10 @@ function SimpleTable (props) {
 
   return (
     <div>
-      <Container>
-        <Card style={{ width: "80rem" }}>
-          <Card.Header>Description</Card.Header>
-          <table className="table table-striped table-hover">
+      <Card>
+        <Card.Header>Description</Card.Header>
+        <div class="table-responsive">
+          <table className="table table-striped table-hover w-auto">
             <thead>
               <tr>
                 <th scope="col">Variable</th>
@@ -174,8 +177,8 @@ function SimpleTable (props) {
             </thead>
             <tbody>{rows}</tbody>
           </table>
-        </Card>
-      </Container>
+        </div>
+      </Card>
     </div>
   );
 }
