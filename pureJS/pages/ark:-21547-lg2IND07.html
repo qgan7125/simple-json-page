@@ -1,23 +1,78 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iSamples JSON Page</title>
-    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-        crossorigin=""></script>
-    <script type="application/ld+json">
-    </script>
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iSamples JSON Page</title>
+<link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+<link crossorigin="" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" rel="stylesheet"/>
+<script crossorigin="" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+<script type="application/ld+json">{
+    "$schema": "../../iSamplesSchemaBasic0.2.json",
+    "@id": "metadata/21547/lg2IND07",
+    "label": "IND07",
+    "sampleidentifier": "ark:/21547/lg2IND07",
+    "description": "identificationRemarks: morphology",
+    "hasContextCategory": [],
+    "hasMaterialCategory": [
+        "Organic material"
+    ],
+    "hasSpecimenCategory": [
+        "Whole organism"
+    ],
+    "informalClassification": [
+        "Acanthaster",
+        "planci"
+    ],
+    "keywords": [
+        "Pulau Seribu",
+        "Indonesia",
+        "Echinodermata"
+    ],
+    "producedBy": {
+        "@id": "ark:/21547/BEE2cd368672f34f0d2525c6198f8c9152d8",
+        "label": "cd368672f34f0d2525c6198f8c9152d8 acapla_CO1_all",
+        "description": "expeditionCode: acapla_CO1_all | projectId: 1",
+        "hasFeatureOfInterest": "Not Provided",
+        "responsibility": [
+            "principalInvestigator: Gert Woerheide"
+        ],
+        "resultTime": "1991",
+        "samplingSite": {
+            "description": "Not Provided",
+            "label": "Pulau Seribu",
+            "location": {
+                "elevation": "Not Provided",
+                "latitude": -5.71076,
+                "longitude": 106.597
+            },
+            "placeName": [
+                "Pulau Seribu",
+                "Pulau Seribu",
+                "Indonesia"
+            ]
+        }
+    },
+    "registrant": "Not Provided",
+    "samplingPurpose": "Not Provided",
+    "curation": {
+        "label": "Not Provided",
+        "description": "Not Provided",
+        "accessConstraints": "Not Provided",
+        "curationLocation": "LMU",
+        "responsibility": "curator:LMU"
+    },
+    "relatedResource": [
+        {
+            "label": "subsample tissue",
+            "relationship": "subsample",
+            "target": "ark:/21547/BEF2IND07"
+        }
+    ]
+}</script>
+<style>
         * {
             font-family: 'Open Sans';
         }
@@ -39,8 +94,7 @@
             height: 300px;
         }
     </style>
-
-    <script language="javascript">
+<script language="javascript">
         const ZOOM_LEVEL = 6;
         const DEFAULT_LOCATION = [0, 0];
 
@@ -230,49 +284,42 @@
             createMap([findGeoInfo(_jsonld, 'latitude'), findGeoInfo(_jsonld, 'longitude')]);
         };
     </script>
-</head>
-
+</link></head>
 <body onload="extractJsonldFromDOM()">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="https://isamplesorg.github.io/assets/isampleslogopetal.png" alt="iSamples Logo Petal"
-            width="100"></img>
-        <span class="navbar-brand mb-0 h1">Internet of Samples: iSamples</span>
-    </nav>
-    <div class="container-fluid p-3">
-        <div class="row">
-            <div class="col-sm-8">
-                <div class="card">
-                    <div class="card-header"><b>Description</b></div>
-                    <div id='TableView' class="card-body"></div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="vstack gap-3">
-                    <div class="card">
-                        <div class="card-header">Citation</div>
-                        <div id="citation" class="card-body"></div>
-                    </div>
-                    <div>
-                        <h5>Map Data</h5>
-                        <div id="map"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div class="d-flex flex-wrap justify-content-between align-items-center p-4 border-top">
-            <div class="text-center text-muted">© Copyright 2020, iSamples Project.This material is based upon work
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<img alt="iSamples Logo Petal" src="https://isamplesorg.github.io/assets/isampleslogopetal.png" width="100"/>
+<span class="navbar-brand mb-0 h1">Internet of Samples: iSamples</span>
+</nav>
+<div class="container-fluid p-3">
+<div class="row">
+<div class="col-sm-8">
+<div class="card">
+<div class="card-header"><b>Description</b></div>
+<div class="card-body" id="TableView"></div>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="vstack gap-3">
+<div class="card">
+<div class="card-header">Citation</div>
+<div class="card-body" id="citation"></div>
+</div>
+<div>
+<h5>Map Data</h5>
+<div id="map"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer>
+<div class="d-flex flex-wrap justify-content-between align-items-center p-4 border-top">
+<div class="text-center text-muted">© Copyright 2020, iSamples Project.This material is based upon work
                 supported
-                by the National Science Foundation under Grant Numbers <a
-                    href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004839">2004839</a>, <a
-                    href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004562">2004562</a>, <a
-                    href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004642">2004642</a>, and <a
-                    href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004815">2004815</a>. Any opinions, findings, and
+                by the National Science Foundation under Grant Numbers <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004839">2004839</a>, <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004562">2004562</a>, <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004642">2004642</a>, and <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=2004815">2004815</a>. Any opinions, findings, and
                 conclusions or recommendations expressed in this material are those of the author(s) and do not
                 necessarily reflect the views of the <a href="https://nsf.gov/">National Science Foundation</a>.</div>
-        </div>
-    </footer>
+</div>
+</footer>
 </body>
-
 </html>
