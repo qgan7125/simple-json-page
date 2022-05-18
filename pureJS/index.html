@@ -2,180 +2,214 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iSamples JSON Page</title>
-  <script src="./prettyPrint.js"></script>
-  <script type="application/ld+json">
-    {
-      "primary_key": 2128671,
-      "tstamp": "2021-12-15T20:06:15.766231",
-      "id": "IGSN:ODP02DGLR",
-      "item_type": "Individual Sample",
-      "resolved_url": "https://api.geosamples.org/v1/sample/igsn-ev-json-ld/igsn/ODP02DGLR",
-      "tresolved": "2021-08-12T09:09:32.387416",
-      "resolved_media_type": "application/ld+json",
-      "resolved_content": {
-          "@id": "https://data.geosamples.org/sample/igsn/ODP02DGLR",
-          "igsn": "ODP02DGLR",
-          "@context": "https://raw.githubusercontent.com/IGSN/igsn-json/master/schema.igsn.org/json/registration/v0.1/context.jsonld",
-          "registrant": {
-              "name": "IEDA",
-              "identifiers": {
-                  "id": "https://www.geosamples.org",
-                  "kind": "uri"
-              }
-          },
-          "description": {
-              "log": [
-                  {
-                      "type": "registered",
-                      "timestamp": "2006-08-11 12:00:00"
-                  },
-                  {
-                      "type": "published",
-                      "timestamp": "2010-12-10 07:52:12"
-                  },
-                  {
-                      "type": "lastUpdated",
-                      "timestamp": "2006-08-11 12:00:00"
-                  }
-              ],
-              "collector": "Curator",
-              "publisher": {
-                  "@id": "https://www.geosamples.org",
-                  "url": "https://www.geosamples.org",
-                  "name": "EarthChem",
-                  "@type": "Organization",
-                  "contactPoint": {
-                      "url": "https://www.geosamples.org/contact/",
-                      "name": "Information Desk",
-                      "@type": "ContactPoint",
-                      "email": "info@geosamples.org",
-                      "contactType": "Customer Service"
-                  }
-              },
-              "igsnPrefix": "ODP",
-              "sampleName": "Sample 160-966A-5H-4 (108-110 cm.)",
-              "sampleType": "Individual Sample",
-              "description": "Janus sample_id: 1098706",
-              "geoLocation": {
-                  "geo": [
-                      {
-                          "@type": "GeoCoordinates",
-                          "latitude": "33.7966",
-                          "longitude": "32.7016"
-                      }
-                  ],
-                  "@type": "Place"
-              },
-              "contributors": [
-                  {
-                      "@type": "Role",
-                      "roleName": "Sample Owner",
-                      "contributor": [
-                          {
-                              "name": "Curator Integrated Ocean Drilling Program (TAMU)",
-                              "@type": "Person",
-                              "givenName": "Curator",
-                              "familyName": "Integrated Ocean Drilling Program (TAMU)"
-                          }
-                      ]
-                  },
-                  {
-                      "@type": "Role",
-                      "roleName": "Sample Registrant",
-                      "contributor": [
-                          {
-                              "name": "Curator Integrated Ocean Drilling Program (TAMU)",
-                              "@type": "Person",
-                              "givenName": "Curator",
-                              "familyName": "Integrated Ocean Drilling Program (TAMU)"
-                          }
-                      ]
-                  },
-                  {
-                      "@type": "Role",
-                      "roleName": "Sample Archive Contact",
-                      "contributor": [
-                          {
-                              "name": "Curator",
-                              "@type": "Person"
-                          }
-                      ]
-                  }
-              ],
-              "collectorDetail": "Texas A&M University, Integrated Ocean Drilling Program, College Station, TX, 77845, USA",
-              "parentIdentifier": "ODP01GYGN",
-              "supplementMetadata": {
-                  "document": [],
-                  "sampleId": 2402124,
-                  "childIGSN": [],
-                  "elevation": -926.6,
-                  "otherName": [],
-                  "siblingIGSN": [
-                      "ODP02DGLK",
-                      "ODP02DGLL",
-                      "ODP01GYGO",
-                      "ODP02DGLN",
-                      "ODP01GYGP",
-                      "ODP01GYGQ",
-                      "ODP02DGLM",
-                      "ODP02DGLO",
-                      "ODP02DGLP",
-                      "ODP02DGLQ"
-                  ],
-                  "platformType": "Ship",
-                  "elevationUnit": "meters",
-                  "currentArchive": "Integrated Ocean Drilling Program (IODP)",
-                  "publicationUrl": [],
-                  "originalArchive": "Texas A&M University, Integrated Ocean Drilling Program, College Station, TX, 77845, USA",
-                  "cruiseFieldPrgrm": "ODP Leg 160",
-                  "externalSampleId": "Sample 160-966A-5H-4 (108-110 cm.)",
-                  "currentArchiveContact": "Curator"
-              }
-          }
-      },
-      "identifiers": null,
-      "tcreated": "2006-08-11T12:00:00",
-      "authority_id": "SESAR",
-      "resolved_status": 200,
-      "resolve_elapsed": 0.361236,
-      "h3": "8f3f49c28421434"
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSamples JSON Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+    <script type="application/ld+json">
+        {
+            "identifiers": [
+                "ark:/28722/k2t152s9s",
+                "ark:/28722/k2t152s9s"
+            ],
+            "resolved_content": {
+                "uri": "http://opencontext.org/subjects/241EDB16-CF3E-4D26-6BD5-0B277C61AAA2",
+                "label": "97425 (8)",
+                "Creator": [
+                    {
+                        "id": "http://opencontext.org/persons/1EFB20BC-BE05-486A-C434-988892277ED5",
+                        "label": "Martha Sharp Joukowsky"
+                    }
+                ],
+                "updated": "2017-02-13T02:52:29Z",
+                "latitude": 30.3287,
+                "longitude": 35.4421,
+                "published": "2007-11-11T00:00:00Z",
+                "context uri": "http://opencontext.org/subjects/7DEDAE74-1B75-4A7F-9B17-4587AB23E283",
+                "late bce/ce": 360.0,
+                "project uri": "http://opencontext.org/projects/A5DDBEA2-B3C8-43F9-8151-33343CBDC857",
+                "citation uri": "http://n2t.net/ark:/28722/k2t152s9s",
+                "early bce/ce": -200.0,
+                "context label": "Jordan/Petra Great Temple/Lower Temenos/Trench 97/Locus 10/Seq. 97425",
+                "item category": "Object",
+                "project label": "Petra Great Temple Excavations"
+            },
+            "tstamp": "2022-04-19T17:48:14.526532",
+            "item_type": "sample",
+            "resolved_url": "https://opencontext.org/subjects-search/.json?add-attribute-uris=1&attributes=obo-foodon-00001303%2Coc-zoo-has-anat-id%2Ccidoc-crm-p2-has-type%2Ccidoc-crm-p45-consists-of%2Ccidoc-crm-p49i-is-former-or-current-keeper-of%2Ccidoc-crm-p55-has-current-location%2Cdc-terms-temporal%2Cdc-terms-creator%2Cdc-terms-contributor&prop=oc-gen-cat-sample-col%7C%7Coc-gen-cat-bio-subj-ecofact%7C%7Coc-gen-cat-object&response=metadata%2Curi-meta&rows=200&sort=updated--desc&start=688800",
+            "tresolved": "2021-07-20T21:48:10.161006",
+            "resolved_media_type": "application/json",
+            "primary_key": 4142478,
+            "id": "ark:/28722/k2t152s9s",
+            "tcreated": "2017-02-13T02:52:29",
+            "authority_id": "OPENCONTEXT",
+            "resolved_status": 200,
+            "resolve_elapsed": null,
+            "h3": "8f3e6dca50120b3"
+        }
   </script>
 
-  <style>
-    textarea {
-      width: 100%;
-      height: 100vh;
-      border: none;
-      background-color: transparent;
-      resize: none;
-      outline: none;
-    }
-  </style>
+    <style>
+        span {
+            white-space: pre-wrap;
+        }
 
-  <script language="javascript">
-    function extractJsonldFromDOM() {
-      const eles = document.querySelector('script[type="application/ld+json"]');
-      const _jsonld = JSON.parse(eles.innerHTML);
-      const textarea = document.createElement('textarea');
-      // textarea.innerHTML = JSON.stringify(_jsonld, null, 4);
-      // document.querySelector('body').appendChild(textarea);
-      let tbl = prettyPrint(_jsonld);
-      document.body.insertBefore(tbl, document.body.firstChild);
-    };
+        #tbValue {
+            word-break: break-all;
+        }
 
-    window.addEventListener('load', function () {
-      extractJsonldFromDOM();
-    })
-  </script>
+        #TableView {
+            padding: 10px;
+        }
+
+        #map {
+            height: 300px;
+        }
+    </style>
+
+    <script language="javascript">
+        const ZOOM_LEVEL = 6;
+        const fields = ["id", "authority_id", "primary_key", "item_type", "resolved_content"];
+
+        function wellFormatKey(key) {
+            const newKey = key.replace('resolved_content', "").replace(" ", "");
+            return newKey.split(' ').map(word => word.slice(0, 1).toUpperCase() + word.slice(1)).join(' ');
+        }
+
+        function isURL(value) {
+            let url;
+            try {
+                url = new URL(value);
+            } catch (e) {
+                return false
+            }
+
+            return url.protocol === 'http:' || url.protocol === 'https:';
+        }
+
+        function cleanJSON(prevKey, jsonData) {
+            let result = {};
+            for (let key of Object.keys(jsonData)) {
+                // remove the empty fields
+                if (jsonData[key].length === 0) {
+                    continue;
+                }
+                const newKey = prevKey + " " + key;
+
+                // if the child is a hashtable or array
+                // deal with the child object
+                if (typeof jsonData[key] === 'object') {
+                    // if the child is an arrary
+                    if (Array.isArray(jsonData[key])) {
+                        // concatenate pure string array
+                        if (typeof jsonData[key][0] === 'string') {
+                            result[newKey] = jsonData[key].join(', ');
+                        } else {
+                            // if the value is object array, do string manipulation
+                            const list = jsonData[key].map(v => JSON.stringify(v).replaceAll(/"|{|}/g, "")).join('\r\n')
+                            result[newKey] = list;
+                        }
+                    } else {
+                        // do recursion to children 
+                        result = Object.assign({}, result, cleanJSON(newKey, jsonData[key]));
+                    }
+                } else {
+                    result[newKey] = jsonData[key];
+                }
+            }
+            return result;
+        }
+
+        function createTable(data) {
+            const table = document.createElement('table');
+            table.className = "table table-sm table-striped table-responsive table-hover ";
+
+            // Create table title
+            const thead = document.createElement('thead');
+            thead.innerHTML =
+                `<tr> 
+                    <th>Variable</th>
+                    <th>Value(s)</th>
+                </tr>`;
+
+            // Create table body
+            const tbody = document.createElement('tbody');
+
+            const htmlBody = Object.keys(data).sort().map((key) =>
+                `<tr>
+                    <td>
+                        ${wellFormatKey(key)}
+                    </td>
+                    <td id='tbValue'>
+                        ${isURL(data[key]) ? `<a href=${data[key]}>${data[key]}</a>` : `<span>${data[key]}</span>`}
+                    </td>
+                </tr>`)
+            tbody.innerHTML = htmlBody.join('');
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            return table;
+        }
+
+        function findGeoInfo(data, field) {
+            const fieldStart = JSON.stringify(data).indexOf(field);
+            const fieldLength = JSON.stringify(data).substring(fieldStart).indexOf(',');
+            const fieldValue = JSON.stringify(data).substring(fieldStart, fieldStart + fieldLength);
+            return parseFloat(fieldValue.split(':')[1].replaceAll('"', ""));
+        }
+
+        function createMap(location) {
+            var map = L.map('map').setView(location, ZOOM_LEVEL);
+            L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker(location).addTo(map);
+        }
+
+
+        function extractJsonldFromDOM() {
+            const eles = document.querySelector('script[type="application/ld+json"]');
+            const _jsonld = JSON.parse(eles.innerHTML);
+            // apply functions to manipulate the json data
+            const selectedFields = Object.fromEntries(Object.entries(_jsonld).filter(([key]) => fields.includes(key)));
+            const newFieldsDict = cleanJSON("", selectedFields);
+            document.getElementById('TableView').appendChild(createTable(newFieldsDict));
+            createMap([findGeoInfo(_jsonld, 'latitude'), findGeoInfo(_jsonld, 'longitude')]);
+        };
+
+    </script>
 
 </head>
 
-<body>
-
+<body onload="extractJsonldFromDOM()">
+    <div class="container-fluid p-3">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header"><b>Description</b></div>
+                    <div id='TableView' class="card-body"></div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="vstack gap-3">
+                    <div class="card">
+                        <div class="card-header">Citation</div>
+                        <div class="card-body">To Do</div>
+                    </div>
+                    <div>
+                        <h5>Map Data</h5>
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
